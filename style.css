@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    padding-left: 200px;
+    padding-right: 200px;
+    height: 90vh;
+}
+
+.header {
+    font-size: 40px;
+    margin-bottom: 150px;
+    flex: 0 1 auto;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 150px;
+}
+
+.content .panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    flex: 1 1 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.content .grid {
+    display: grid;
+    flex: 4 1 auto;
+}
+
+.content .cell {
+    border: 2px;
+    border-color: red;
+    border-style: solid;
+}
