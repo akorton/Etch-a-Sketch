@@ -50,7 +50,7 @@ inputNumberOfSquaresButton.addEventListener('click', (e)=>{
         return;
     }
     setUpGrid(numberOfSquares);
-})
+});
 
 
 const toggleBordersButton = document.querySelector('.borders');
@@ -59,4 +59,14 @@ toggleBordersButton.addEventListener('click', (e)=>{
     grid.childNodes.forEach(cell=>{
         cell.classList.toggle("invisibleBorders");
     })
+});
+
+const colorInput = document.querySelector('.choose-color input');
+colorInput.style.borderColor = newColor;
+const colorSubmitButton = document.querySelector('.choose-color button');
+
+colorSubmitButton.addEventListener('click', (e)=>{
+    newColor = colorInput.value;
+    colorInput.style.borderColor = newColor;
+    alert('Color successfully changed!');
 })
