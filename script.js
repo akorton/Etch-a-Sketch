@@ -25,12 +25,11 @@ const setUpGrid = (num)=>{
     grid = newGrid;
 }
 
-setUpGrid(16);
+setUpGrid(20);
 
 const resetButton = document.querySelector('.reset');
 
 resetButton.addEventListener('click', (e)=>{
-    console.log(grid);
     resetGrid();
 });
 
@@ -39,3 +38,14 @@ const resetGrid = ()=>{
         cell.style.backgroundColor = initialColor;
     });
 }
+
+const inputNumberOfSquaresButton = document.querySelector('.number-of-squares');
+inputNumberOfSquaresButton.addEventListener('click', (e)=>{
+    let numberOfSquares = +prompt('Input number of squares in one row: ');
+    console.log(numberOfSquares);
+    if (numberOfSquares <= 0 || numberOfSquares > 100 || isNaN(numberOfSquares) || !Number.isInteger(numberOfSquares)) {
+        alert('Incorrect number of squares:\nNumber of squares should be poisitive natural number less than 101.');
+        return;
+    }
+    setUpGrid(numberOfSquares);
+})
