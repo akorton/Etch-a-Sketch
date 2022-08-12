@@ -2,6 +2,7 @@ let grid;
 let initialColor = '#E5E5E5';
 let newColor = '#ffa500';
 let invisibleBorders = false;
+let anarchyFlag = false;
 
 const setUpGrid = (num)=>{
     let content = document.querySelector('.content');
@@ -19,7 +20,8 @@ const setUpGrid = (num)=>{
             element.style.gridArea = `${i + 1} / ${j + 1} / ${i + 2} / ${j + 2}`;
             element.addEventListener('mouseover', (e)=>{
                 let curElement = e.target;
-                curElement.style.backgroundColor = newColor;
+                if (!anarchyFlag) curElement.style.backgroundColor = newColor;
+                else curElement.style.backgroundColor = getRandomColorRGB();
             });
             newGrid.appendChild(element);
         }
@@ -69,4 +71,29 @@ colorSubmitButton.addEventListener('click', (e)=>{
     newColor = colorInput.value;
     colorInput.style.borderColor = newColor;
     alert('Color successfully changed!');
+});
+
+const anarchyButton = document.querySelector('.anarchy');
+const anarchyExitButton = document.querySelector('.anarchy-exit');
+anarchyButton.addEventListener('click', (e)=>{
+    anarchyFlag = true;
+    anarchyButton.classList.toggle('invisibleButton');
+    anarchyExitButton.classList.toggle('invisibleButton');
 })
+anarchyExitButton.addEventListener('click', (e)=>{
+    anarchyFlag = false;
+    anarchyButton.classList.toggle('invisibleButton');
+    anarchyExitButton.classList.toggle('invisibleButton');
+})
+
+const getRandomColorRGB = ()=>{
+    let r = getRandomInteger(0, 256).toString(16);
+    let g = getRandomInteger(0, 256).toString(16);
+    let b = getRandomInteger(0, 256).toString(16);
+    return `#${r}${g}${b}`;
+}
+
+
+const getRandomInteger = (from, to)=>{
+    return Math.floor(Math.random() * (to - from) + from);
+}

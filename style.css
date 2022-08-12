@@ -10,7 +10,7 @@ body {
 
 .header {
     font-size: 40px;
-    margin-bottom: 250px;
+    margin-bottom: 150px;
     flex: 0 1 auto;
     text-align: center;
 }
@@ -100,4 +100,13 @@ button {
 
 .content .panel .choose-color button {
     background-color: palevioletred;
+}
+
+.content .panel .anarchy {
+    color:springgreen;
+    background-color: red;
+}
+
+.invisibleButton {
+    display: none;
 }
