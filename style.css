@@ -31,6 +31,7 @@ body {
     flex: 1 1 auto;
     padding-left: 50px;
     padding-right: 50px;
+    gap: 50px;
 }
 
 .content .grid {
@@ -43,4 +44,18 @@ body {
     border: 2px;
     border-color: red;
     border-style: solid;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.reset {
+    background-color:cornflowerblue;
+    color:black;
 }
