@@ -1,6 +1,7 @@
 let grid;
 let initialColor = '#E5E5E5';
 let newColor = '#ffa500';
+let invisibleBorders = false;
 
 const setUpGrid = (num)=>{
     let content = document.querySelector('.content');
@@ -13,6 +14,7 @@ const setUpGrid = (num)=>{
         for (let j = 0; j < num; j++){
             let element = document.createElement('div');
             element.classList.add('cell');
+            if (invisibleBorders) element.classList.add('invisibleBorders');
             element.style.backgroundColor = initialColor;
             element.style.gridArea = `${i + 1} / ${j + 1} / ${i + 2} / ${j + 2}`;
             element.addEventListener('mouseover', (e)=>{
@@ -48,4 +50,13 @@ inputNumberOfSquaresButton.addEventListener('click', (e)=>{
         return;
     }
     setUpGrid(numberOfSquares);
+})
+
+
+const toggleBordersButton = document.querySelector('.borders');
+toggleBordersButton.addEventListener('click', (e)=>{
+    invisibleBorders = !invisibleBorders;
+    grid.childNodes.forEach(cell=>{
+        cell.classList.toggle("invisibleBorders");
+    })
 })
